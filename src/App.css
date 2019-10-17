@@ -1,20 +1,21 @@
-.App {
-  text-align: center;
-}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 
-.App-logo {
-  height: 40vmin;
+.App {
+  text-align: left;
+  font-family: Open Sans;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+}
+
+.title {
+    color: #3E5769;
 }
 
 .App-link {

@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import AddStock from './components/AddStock';
+import StockCard from './components/StockCard';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      stocks: [],
+    }
+  }
+
+  addStock = (newStock) => {
+    console.log(newStock)
+    this.setState({stocks: [...this.state.stocks, newStock]});
+  }
+
+  render() {
+    return(
+      <div className="App">
+        <header className="App-header">
+          <h1 className='title'>Stock Watcher</h1>
+          <AddStock addStock={this.addStock}/>
+          <div style={{display: 'flex', flexWrap: 'wrap'}}>
+            {this.state.stocks.map(stock => {
+               return <StockCard key={stock['Global Quote']['01. symbol']} stock={stock}/>
+            })}
+          </div>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
